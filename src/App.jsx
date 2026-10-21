@@ -1,11 +1,12 @@
 import './index.css'
+import AppRouter from './routes/AppRouter'
 
 function App() {
   
 
   return (
     <>
-      <h1 className='text-amber-500'>Afroclass</h1>
+      <AppRouter />
     </>
   )
 }

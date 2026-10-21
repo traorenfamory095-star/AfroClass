@@ -1,1 +1,66 @@
 @import "tailwindcss";
+@import "tailwindcss";
+
+/* 1. Les valeurs réelles, claires par défaut */
+:root {
+  --bg: #F8FAFC;
+  --card: #fff;
+  --ink: #0F172A;
+  --mut: #475569;
+  --head: #0F2C59;
+  --pri: #0F2C59;
+  --cy: #0891B2;
+  --acc: #D97706;
+  --line: #E2E8F0;
+  --soft: #EEF2F7;
+}
+
+/* 2. Les valeurs sombres, si le téléphone est en mode sombre */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1220;
+    --card: #111A2E;
+    --ink: #E6EDF7;
+    --mut: #9AA8BD;
+    --head: #F1F5FF;
+    --pri: #1D4F9E;
+    --cy: #22B8D6;
+    --acc: #F59E0B;
+    --line: #22304A;
+    --soft: #17233B;
+  }
+}
+
+/* 3. Mode sombre forcé (utile pour un futur bouton) */
+:root[data-theme="dark"] {
+  --bg: #0B1220;
+  --card: #111A2E;
+  --ink: #E6EDF7;
+  --mut: #9AA8BD;
+  --head: #F1F5FF;
+  --pri: #1D4F9E;
+  --cy: #22B8D6;
+  --acc: #F59E0B;
+  --line: #22304A;
+  --soft: #17233B;
+}
+
+/* 4. On branche ces variables sur Tailwind */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-mut: var(--mut);
+  --color-head: var(--head);
+  --color-pri: var(--pri);
+  --color-cy: var(--cy);
+  --color-acc: var(--acc);
+  --color-line: var(--line);
+  --color-soft: var(--soft);
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
